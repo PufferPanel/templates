@@ -1,5 +1,5 @@
 {
-  "type": "csgo",
+  "type": "srcds",
   "display": "Counter Strike: Global Offensive",
   "install": [
     {
@@ -16,7 +16,8 @@
         "tar --no-same-owner -xzvf steamcmd_linux.tar.gz -C steamcmd",
         "steamcmd/steamcmd.sh +login anonymous +force_install_dir .. +app_update 740 +quit",
         "mkdir -p .steam/sdk32",
-        "cp steamcmd/linux32/steamclient.so .steam/sdk32/steamclient.so"
+        "cp steamcmd/linux32/steamclient.so .steam/sdk32/steamclient.so",
+        "rm steamcmd_linux.tar.gz"
       ]
     }
   ],

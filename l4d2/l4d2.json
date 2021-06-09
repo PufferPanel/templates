@@ -1,6 +1,6 @@
 {
   "type": "srcds",
-  "display": "Counter Strike: Source",
+  "display": "Left 4 Dead 2",
   "install": [
     {
       "type": "download",
@@ -13,8 +13,8 @@
     {
       "type": "command",
       "commands": [
-        "tar --no-same-owner -xzvf steamcmd_linux.tar.gz -C steamcmd",
-        "steamcmd/steamcmd.sh +login anonymous +force_install_dir .. +app_update 232330 +quit",
+        "tar --no-same-owner -xzf steamcmd_linux.tar.gz -C steamcmd",
+        "steamcmd/steamcmd.sh +login anonymous +force_install_dir .. +app_update 222860 +quit",
         "mkdir -p .steam/sdk32",
         "cp steamcmd/linux32/steamclient.so .steam/sdk32/steamclient.so",
         "rm steamcmd_linux.tar.gz"
@@ -25,7 +25,7 @@
     "stop": "exit",
     "pre": [],
     "post": [],
-    "command": "./srcds_run -game cstrike -ip ${ip} -port ${port} +clientport ${clientport} +tv_port ${tvport} +map ${map} -maxplayers ${maxplayers} -tickrate ${tickrate} -norestart"
+    "command": "./srcds_run -game left4dead2 -ip ${ip} -port ${port} +clientport ${clientport} +map ${map} -maxplayers ${maxplayers} -norestart"
   },
   "environment": {
     "type": "tty"
@@ -41,14 +41,14 @@
   ],
   "data": {
     "map": {
-      "value": "de_dust2",
+      "value": "c5m1_waterfront",
       "required": true,
       "desc": "Map to load by default",
       "display": "Map",
       "internal": false
     },
     "maxplayers": {
-      "value": "20",
+      "value": "8",
       "required": true,
       "desc": "Max players allowed on server",
       "display": "Max Players",
@@ -75,22 +75,6 @@
       "required": true,
       "desc": "What port to bind the clientport to",
       "display": "Client Port",
-      "internal": false,
-      "type": "integer"
-    },
-    "tvport": {
-      "value": "27020",
-      "required": true,
-      "desc": "What port to bind the SourceTV to",
-      "display": "SourceTV Port",
-      "internal": false,
-      "type": "integer"
-    },
-    "tickrate": {
-      "value": "66",
-      "required": true,
-      "desc": "Server tick speed, to use this value you need to download this addon: https://github.com/daemon32/tickrate_enabler/releases/tag/0.5",
-      "display": "Tickrate",
       "internal": false,
       "type": "integer"
     }
